@@ -24,6 +24,9 @@ public class OrdinaryBuyer {
 	public List<OrderItem> buyAll(Map<Character,Long> remainedItems) {
 		List<OrderItem> result = new LinkedList<OrderItem>();
 		for (Map.Entry<Character, Long> entry: remainedItems.entrySet()) {
+			if(Long.compare(entry.getValue(), 0)<=0) {
+				continue;
+			}
 			BigDecimal price = productService.getPrice(entry.getKey()).orElseThrow(()->  new IllegalArgumentException("Product doesn't exist!"));
 			OrderItem item = new OrderItem(entry.getValue() + " * "+ entry.getKey(),price.multiply(new BigDecimal(entry.getValue())));
 			result.add(item);

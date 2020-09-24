@@ -48,7 +48,7 @@ public class PromotionEngineTest {
 		Assertions.assertTrue((new BigDecimal(370)).compareTo(order.getTotalPrice()) == 0);
 		Assertions.assertIterableEquals(
 				order.getItems().stream().map((item) -> item.getDescription()).collect(Collectors.toList()),
-				Arrays.asList("3 of A\'s for 130", "2 of B\'s for 45", "2 of B\'s for 45", "2 * A", "1 * B", "1 * C"));
+				Arrays.asList("3 of A\'s", "2 of B\'s", "2 of B\'s", "2 * A", "1 * B", "1 * C"));
 	}
 
 	@Test
@@ -57,7 +57,7 @@ public class PromotionEngineTest {
 		Assertions.assertTrue((new BigDecimal(280)).compareTo(order.getTotalPrice()) == 0);
 		Assertions.assertIterableEquals(
 				order.getItems().stream().map((item) -> item.getDescription()).collect(Collectors.toList()),
-				Arrays.asList("3 of A\'s for 130", "2 of B\'s for 45", "2 of B\'s for 45", "1 * B", "C & D"));
+				Arrays.asList("3 of A\'s", "2 of B\'s", "2 of B\'s", "C & D", "1 * B"));
 	}
 
 }
