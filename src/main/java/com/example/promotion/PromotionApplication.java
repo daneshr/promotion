@@ -16,10 +16,11 @@ public class PromotionApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(PromotionApplication.class, args);
 	}
-    @Bean
-    public Docket productApi() {
-        return new Docket(DocumentationType.SWAGGER_2).select()
-                .apis(RequestHandlerSelectors.basePackage("com.example.promotion.controller")).build();
-    }
+
+	@Bean
+	public Docket productApi() {
+		return new Docket(DocumentationType.SWAGGER_2).select()
+				.apis(RequestHandlerSelectors.basePackage("com.example.promotion.controller")).build();
+	}
 
 }
