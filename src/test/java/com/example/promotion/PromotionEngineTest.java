@@ -10,13 +10,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.promotion.dto.Order;
+import com.example.promotion.service.impl.PromotionEngineImpl;
 
 
 @SpringBootTest
 public class PromotionEngineTest {
 
     @Autowired
-    private com.example.promotion.service.PromotionEngine promotionEngine;
+    private PromotionEngineImpl promotionEngine;
 
     @Test
     public void shouldThrowIllegalArgumentException_whenReceiveUnsupportedProduct() {
