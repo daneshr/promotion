@@ -7,14 +7,16 @@ import java.util.Map;
 import com.example.promotion.dto.OrderItem;
 
 public abstract class Promotion {
-	public final List<OrderItem> apply(Map<Character,Long> remainedItems){
+	public final List<OrderItem> apply(Map<Character, Long> remainedItems) {
 		List<OrderItem> result = new LinkedList<OrderItem>();
-		while(match(remainedItems)) {
+		while (match(remainedItems)) {
 			result.add(applyMe(remainedItems));
 		}
-		return result;	
+		return result;
 	}
-	protected abstract boolean match(Map<Character,Long> remainedItems);
-	protected abstract OrderItem applyMe(Map<Character,Long> remainedItems);
+
+	protected abstract boolean match(Map<Character, Long> remainedItems);
+
+	protected abstract OrderItem applyMe(Map<Character, Long> remainedItems);
 
 }

@@ -13,28 +13,29 @@ import com.example.promotion.service.ProductService;
 
 @Service
 public class OrdinaryBuyer {
-	
+
 	private ProductService productService;
-	
+
 	@Autowired
 	public OrdinaryBuyer(ProductService productService) {
 		this.productService = productService;
 	}
 
-	public List<OrderItem> buyAll(Map<Character,Long> remainedItems) {
+	public List<OrderItem> buyAll(Map<Character, Long> remainedItems) {
 		List<OrderItem> result = new LinkedList<OrderItem>();
-		for (Map.Entry<Character, Long> entry: remainedItems.entrySet()) {
-			if(Long.compare(entry.getValue(), 0)<=0) {
+		for (Map.Entry<Character, Long> entry : remainedItems.entrySet()) {
+			if (Long.compare(entry.getValue(), 0) <= 0) {
 				continue;
 			}
-			BigDecimal price = productService.getPrice(entry.getKey()).orElseThrow(()->  new IllegalArgumentException("Product doesn't exist!"));
-			OrderItem item = new OrderItem(entry.getValue() + " * "+ entry.getKey(),price.multiply(new BigDecimal(entry.getValue())));
+			BigDecimal price = productService.getPrice(entry.getKey())
+					.orElseThrow(() -> new IllegalArgumentException("Product doesn't exist!"));
+			OrderItem item = new OrderItem(entry.getValue() + " * " + entry.getKey(),
+					price.multiply(new BigDecimal(entry.getValue())));
 			result.add(item);
-			
-		}		
+
+		}
 		return result;
-	
+
 	}
 
-	
 }

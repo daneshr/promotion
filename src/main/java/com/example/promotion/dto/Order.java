@@ -10,8 +10,9 @@ import lombok.Getter;
 
 @Getter
 public class Order {
-	private BigDecimal totalPrice =Constants.ZERO;
+	private BigDecimal totalPrice = Constants.ZERO;
 	private List<OrderItem> items = new LinkedList<OrderItem>();
+
 	public void addItem(OrderItem item) {
 		items.add(item);
 		totalPrice = totalPrice.add(item.getPrice());

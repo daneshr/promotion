@@ -17,7 +17,7 @@ public class SingleProductPromotion extends Promotion {
 	@Override
 	protected boolean match(Map<Character, Long> remainedItems) {
 
-		return Long.compare(remainedItems.getOrDefault(name, 0l) , this.quantity) >=0;
+		return Long.compare(remainedItems.getOrDefault(name, 0l), this.quantity) >= 0;
 	}
 
 	@Override

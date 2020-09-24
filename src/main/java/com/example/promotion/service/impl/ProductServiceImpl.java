@@ -14,7 +14,7 @@ import com.example.promotion.service.ProductService;
 
 @Service
 public class ProductServiceImpl implements ProductService {
-	
+
 	private Map<Character, BigDecimal> products;
 
 	@PostConstruct
@@ -29,15 +29,13 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public Map<Character, BigDecimal> getAllProducts() {
-		// TODO Auto-generated method stub
 		return products;
 	}
 
 	@Override
 	public Optional<BigDecimal> getPrice(Character productName) {
-		// TODO Auto-generated method stub
-		BigDecimal price =products.getOrDefault(productName,Constants.ZERO);
-		Optional<BigDecimal> result =  price.compareTo(Constants.ZERO) >0 ? Optional.of(price) : Optional.empty();
+		BigDecimal price = products.getOrDefault(productName, Constants.ZERO);
+		Optional<BigDecimal> result = price.compareTo(Constants.ZERO) > 0 ? Optional.of(price) : Optional.empty();
 		return result;
 	}
 
